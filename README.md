@@ -1,4 +1,6 @@
-01 - Projeto BackEnd -> CrudKronixForDevs: Executar Primeiro, instruções no ReadMe do projeto
+Executar na ordem:
+01 - Projeto BackEnd -> CrudKronixForDevs: 
 
+02 - Projeto FrontEnd -> CrudKronixForDevsApp
 
-02 - Projeto FrontEnd -> CrudKronixForDevsApp: Instruções no ReadMe do projeto
+Instruções de instalações e execução no ReadMe de cada projeto...
