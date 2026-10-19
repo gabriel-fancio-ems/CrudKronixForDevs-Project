@@ -1,0 +1,82 @@
+@CrudKronixForDevs_HostAddress = http://localhost:5295
+@Token = cole-o-token-retornado-pelo-login-aqui
+
+### Login: obtenha o JWT usando as credenciais configuradas nos User Secrets.
+POST {{CrudKronixForDevs_HostAddress}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@exemplo.com",
+  "password": "informe-a-senha-configurada"
+}
+
+### Listar medicamentos
+GET {{CrudKronixForDevs_HostAddress}}/api/medicamentos
+Accept: application/json
+Authorization: Bearer {{Token}}
+
+### Criar medicamento
+POST {{CrudKronixForDevs_HostAddress}}/api/medicamentos
+Content-Type: application/json
+Authorization: Bearer {{Token}}
+
+{
+  "nome": "Paracetamol",
+  "principioAtivo": "Paracetamol",
+  "fabricante": "Fabricante Exemplo",
+  "preco": 12.50,
+  "quantidadeEstoque": 100,
+  "dataValidade": "2030-12-31"
+}
+
+### Consultar medicamento por ID
+@MedicamentoId = informe-o-id-retornado-pelo-cadastro
+GET {{CrudKronixForDevs_HostAddress}}/api/medicamentos/{{MedicamentoId}}
+Accept: application/json
+Authorization: Bearer {{Token}}
+
+### Atualizar medicamento
+PUT {{CrudKronixForDevs_HostAddress}}/api/medicamentos/{{MedicamentoId}}
+Content-Type: application/json
+Authorization: Bearer {{Token}}
+
+{
+  "nome": "Paracetamol 750mg",
+  "principioAtivo": "Paracetamol",
+  "fabricante": "Fabricante Exemplo",
+  "preco": 14.90,
+  "quantidadeEstoque": 80,
+  "dataValidade": "2030-12-31"
+}
+
+### Excluir medicamento
+DELETE {{CrudKronixForDevs_HostAddress}}/api/medicamentos/{{MedicamentoId}}
+Authorization: Bearer {{Token}}
+
+### Enviar anexo
+@AnexoId = informe-o-id-retornado-pelo-upload
+POST {{CrudKronixForDevs_HostAddress}}/api/anexos
+Authorization: Bearer {{Token}}
+Content-Type: multipart/form-data; boundary=AnexoBoundary
+
+--AnexoBoundary
+Content-Disposition: form-data; name="arquivo"; filename="exemplo.pdf"
+Content-Type: application/pdf
+
+< C:\Temp\exemplo.pdf
+--AnexoBoundary--
+
+### Listar anexos
+GET {{CrudKronixForDevs_HostAddress}}/api/anexos
+Accept: application/json
+Authorization: Bearer {{Token}}
+
+### Visualizar ou baixar anexo
+GET {{CrudKronixForDevs_HostAddress}}/api/anexos/{{AnexoId}}
+Authorization: Bearer {{Token}}
+
+### Excluir anexo
+DELETE {{CrudKronixForDevs_HostAddress}}/api/anexos/{{AnexoId}}
+Authorization: Bearer {{Token}}
+
+###

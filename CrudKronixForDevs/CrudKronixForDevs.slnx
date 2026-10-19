@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="CrudKronixForDevs.Tests/CrudKronixForDevs.Tests.csproj" />
+  <Project Path="CrudKronixForDevs/CrudKronixForDevs.csproj" />
+</Solution>
